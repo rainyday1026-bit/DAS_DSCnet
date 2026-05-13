@@ -57,7 +57,7 @@ jupyter notebook Apply_CascadeNet_torch.ipynb        # apply
 
 ## Reproducibility note
 
-The DAS-VSP field datasets acquired at Southern East region of Korea test sites are subject to institutional data-sharing restrictions and cannot be released with this repository. The code, hyper-parameters, and architecture are provided in full so that the method can be reproduced on any DAS-VSP dataset organised as described above. Pre-trained checkpoints and relevent DAS-VSP data may be made available upon reasonable request to the corresponding author.
+The DAS-VSP field datasets acquired at Southern East region of Korea test sites are subject to institutional data-sharing restrictions and cannot be released with this repository. The code, hyper-parameters, and architecture are provided in full so that the method can be reproduced on any DAS-VSP dataset organised as described above. Pre-trained checkpoints and relevant DAS-VSP data may be made available upon reasonable request to the corresponding author.
 
 ## Citation
 
