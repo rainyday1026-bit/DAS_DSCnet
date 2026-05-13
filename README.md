@@ -6,11 +6,11 @@ PyTorch implementation of the three-stage self-supervised cascade network propos
 > *Self-Supervised Cascade Network for Denoising of Distributed Acoustic Sensing Vertical Seismic Profile Data.*
 > Submitted to *Geophysical Journal International* (under review).
 
-| Stage | Module    | Architecture                  | Target noise                        |
-|:-----:|:--------- |:----------------------------- |:----------------------------------- |
-| 1     | `model_r` | Autoencoder (`Autoencoder_r`) | Random noise                        |
-| 2     | `model_s` | Residual DnCNN (`DnCNN`)      | Site-specific linear-coupling noise |
-| 3     | `model_c` | Autoencoder (`Autoencoder_c`) | Common mode noise(CMN)              |
+| Stage | Module    | Architecture                  | Target noise                          |
+|:-----:|:--------- |:----------------------------- |:------------------------------------- |
+| 1     | `model_r` | Autoencoder (`Autoencoder_r`) | Random noise                          |
+| 2     | `model_s` | Residual DnCNN (`DnCNN`)      | Site-specific linear / coupling noise |
+| 3     | `model_c` | Autoencoder (`Autoencoder_c`) | Common mode noise (CMN)               |
 
 Stages 1 and 3 follow a Noise2Noise-style scheme; Stage 2 injects separated linear-coupling noise into a Stage-1 output and learns to recover it.
 
