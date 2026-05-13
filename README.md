@@ -6,11 +6,11 @@ PyTorch implementation of the three-stage self-supervised cascade network propos
 > *Self-Supervised Cascade Network for Denoising of Distributed Acoustic Sensing Vertical Seismic Profile Data.*
 > Submitted to *Geophysical Journal International* (under review).
 
-| Stage | Module | Architecture | Target noise |
-|:----:|:--------|:--------------|:--------------|
-| 1 | `model_r` | Autoencoder (`Autoencoder_r`) | Random noise |
-| 2 | `model_l` | Residual DnCNN (`DnCNN`)      | Linear / coupling noise |
-| 3 | `model_d` | Autoencoder (`Autoencoder_d`) | Common mode noise (CMN, Horizontal noise) |
+| Stage | Module    | Architecture                  | Target noise                        |
+|:-----:|:--------- |:----------------------------- |:----------------------------------- |
+| 1     | `model_r` | Autoencoder (`Autoencoder_r`) | Random noise                        |
+| 2     | `model_s` | Residual DnCNN (`DnCNN`)      | Site-specific linear-coupling noise |
+| 3     | `model_c` | Autoencoder (`Autoencoder_c`) | Common mode noise(CMN)              |
 
 Stages 1 and 3 follow a Noise2Noise-style scheme; Stage 2 injects separated linear-coupling noise into a Stage-1 output and learns to recover it.
 
@@ -53,7 +53,7 @@ jupyter notebook DAS_CascadeNet_3noise_torch.ipynb   # train
 jupyter notebook Apply_CascadeNet_torch.ipynb        # apply
 ```
 
-`model_r` updates every epoch, `model_l` starts at epoch 5, and `model_d` starts at epoch 10. Checkpoints are written to `./models/model_first/` (`best_*.pth.tar` and `model_*_<epoch>.pth.tar`); inference outputs (`input`, `pred_r`, `pred_l`, `pred_d`, `label`) are written to `./apply_out/` as `float32` binaries with shape `(n2, n1)`.
+`model_r` updates every epoch, `model_s` starts at epoch 5, and `model_c` starts at epoch 10. Checkpoints are written to `./models/model_first/` (`best_*.pth.tar` and `model_*_<epoch>.pth.tar`); inference outputs (`input`, `pred_r`, `pred_s`, `pred_c`, `label`) are written to `./apply_out/` as `float32` binaries with shape `(n2, n1)`.
 
 ## Reproducibility note
 
