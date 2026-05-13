@@ -10,7 +10,7 @@ PyTorch implementation of the three-stage self-supervised cascade network propos
 |:----:|:--------|:--------------|:--------------|
 | 1 | `model_r` | Autoencoder (`Autoencoder_r`) | Random noise |
 | 2 | `model_l` | Residual DnCNN (`DnCNN`)      | Linear / coupling noise |
-| 3 | `model_d` | Autoencoder (`Autoencoder_d`) | Correlated multi-channel noise (CMN) |
+| 3 | `model_d` | Autoencoder (`Autoencoder_d`) | Common mode noise (CMN, Horizontal noise) |
 
 Stages 1 and 3 follow a Noise2Noise-style scheme; Stage 2 injects separated linear-coupling noise into a Stage-1 output and learns to recover it.
 
